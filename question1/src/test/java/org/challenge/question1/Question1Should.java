@@ -3,6 +3,8 @@ package org.challenge.question1;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -53,9 +55,14 @@ class PrintLineShould {
     System.setOut(originalOut);
   }
 
-  @Test
-  void print_a_line() {
-    Question1.print_line(1, 1);
-    assertFalse(outContent.toString().isEmpty());
+  @ParameterizedTest
+  @CsvSource({
+          "1, 1, *",
+          "1, 0, ' '",
+          "3, 1, '  *'"
+  })
+  void print_a_filled_line(int line_length, int line_fill, String expected) {
+    Question1.print_line(line_length, line_fill);
+    assertEquals(expected + System.lineSeparator(), outContent.toString());
   }
 }

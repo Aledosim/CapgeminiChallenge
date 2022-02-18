@@ -7,6 +7,6 @@ public class Question1 {
   }
 
   static void print_line(int line_length, int line_fill) {
-    System.out.println("Teste");
+    System.out.println("*");
   }
 }
