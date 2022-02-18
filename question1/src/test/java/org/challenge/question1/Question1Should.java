@@ -10,8 +10,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.*;
 
 class Question1Integration {
 
@@ -42,6 +41,7 @@ class Question1Integration {
 
 class PrintLineShould {
 
+  // Redirecting stdout
   private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
   private final PrintStream originalOut = System.out;
 
@@ -61,8 +61,25 @@ class PrintLineShould {
           "3, 1, '  *'",
           "6, 4, '  ****'"
   })
-  void print_a_filled_line(int line_length, int line_fill, String expected) {
+  void print_a_filled_line(int line_length, int line_fill, String expected) throws Exception {
     Question1.print_line(line_length, line_fill);
     assertEquals(expected + System.lineSeparator(), outContent.toString());
+  }
+
+  @Test
+  void raise_exception_with_invalid_parameter_input() {
+    Exception result;
+    
+    // Minimal value for line_length is 1
+    result = assertThrows(Exception.class, () -> Question1.print_line(0, 1));
+    assertEquals("line_length less than 1", result.getMessage());
+
+    // Minimal value for line_fill is 1
+    result = assertThrows(Exception.class, () -> Question1.print_line(5, 0));
+    assertEquals("Invalid line_fill value: 0", result.getMessage());
+
+    // Maximum value for line_fill is line_length
+    result = assertThrows(Exception.class, () -> Question1.print_line(10, 11));
+    assertEquals("line_fill is greater than line_length", result.getMessage());
   }
 }
