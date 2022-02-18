@@ -7,6 +7,7 @@ public class Question1 {
   }
 
   static void print_line(int line_length, int line_fill) {
-    System.out.println("*");
+    String fill = new String(new char[line_fill]).replace("\0", "*");
+    System.out.printf("%" + (line_length + 1) + "s", fill + System.lineSeparator());
   }
 }

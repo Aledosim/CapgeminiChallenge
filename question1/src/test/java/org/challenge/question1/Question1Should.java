@@ -58,8 +58,8 @@ class PrintLineShould {
   @ParameterizedTest
   @CsvSource({
           "1, 1, *",
-          "1, 0, ' '",
-          "3, 1, '  *'"
+          "3, 1, '  *'",
+          "6, 4, '  ****'"
   })
   void print_a_filled_line(int line_length, int line_fill, String expected) {
     Question1.print_line(line_length, line_fill);
