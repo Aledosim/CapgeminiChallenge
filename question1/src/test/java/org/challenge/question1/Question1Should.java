@@ -8,17 +8,26 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class Question1Integration {
 
-  // Question1 should print a message and exit without errors
+  // Question1 should print a stair and exit without errors
   @Test
-  void print_a_message() throws IOException, InterruptedException {
+  void print_stairs_and_exit() throws IOException, InterruptedException {
+    String expected = "     *" + System.lineSeparator() +
+                      "    **" + System.lineSeparator() +
+                      "   ***" + System.lineSeparator() +
+                      "  ****" + System.lineSeparator() +
+                      " *****" + System.lineSeparator() +
+                      "******";
+    int input = 6;
+
     // Build the Question1 subprocess
-    ProcessBuilder builder = JavaProcess.exec(Question1.class);
+    ProcessBuilder builder = JavaProcess.exec(Question1.class, Collections.singletonList(String.valueOf(input)));
 
     // Starts the subprocess and wait for it to finish
     Process process = builder.start();
@@ -33,7 +42,7 @@ class Question1Integration {
     }
     in.close();
 
-    assertFalse(output.isEmpty());
+    assertEquals(expected, String.join(System.lineSeparator(), output));
     assertEquals(0, process.exitValue());
   }
 
@@ -69,7 +78,7 @@ class PrintLineShould {
   @Test
   void raise_exception_with_invalid_parameter_input() {
     Exception result;
-    
+
     // Minimal value for line_length is 1
     result = assertThrows(Exception.class, () -> Question1.print_line(0, 1));
     assertEquals("line_length less than 1", result.getMessage());
