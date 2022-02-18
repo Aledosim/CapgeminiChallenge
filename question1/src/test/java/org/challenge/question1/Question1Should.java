@@ -1,10 +1,10 @@
 package org.challenge.question1;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +19,7 @@ class Question1Integration {
     // Build the Question1 subprocess
     ProcessBuilder builder = JavaProcess.exec(Question1.class);
 
-    // Starts the subprocess and wait for it fo finish
+    // Starts the subprocess and wait for it to finish
     Process process = builder.start();
     process.waitFor();
 
@@ -36,4 +36,26 @@ class Question1Integration {
     assertEquals(0, process.exitValue());
   }
 
+}
+
+class PrintLineShould {
+
+  private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+  private final PrintStream originalOut = System.out;
+
+  @BeforeEach
+  public void setUpStreams() {
+    System.setOut(new PrintStream(outContent));
+  }
+
+  @AfterEach
+  public void restoreStreams() {
+    System.setOut(originalOut);
+  }
+
+  @Test
+  void print_a_line() {
+    Question1.print_line(1, 1);
+    assertFalse(outContent.toString().isEmpty());
+  }
 }
