@@ -2,6 +2,8 @@ package org.challenge.question3;
 
 import org.challenge.utils.JavaProcess;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -35,5 +37,20 @@ class Question3Integration {
 
     assertFalse(output.isEmpty());
     assertEquals(0, process.exitValue());
+  }
+}
+
+class CharCountShould {
+
+  // charCount should return how many times a character appears in a string
+  @ParameterizedTest
+  @CsvSource({
+          "o, ovo, 2",
+          "e, freezer, 3",
+          "i, pista, 1"
+  })
+  void return_char_count_on_string (char letter, String word, int expected) {
+    int result = Question3.charCount(letter, word);
+    assertEquals(expected, result);
   }
 }
