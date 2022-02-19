@@ -47,7 +47,8 @@ class CharCountShould {
   @CsvSource({
           "o, ovo, 2",
           "e, freezer, 3",
-          "i, pista, 1"
+          "i, pista, 1",
+          "m, aeroporto, 0"
   })
   void return_char_count_on_string (char letter, String word, int expected) {
     int result = Question3.charCount(letter, word);
