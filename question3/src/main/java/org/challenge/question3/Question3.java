@@ -1,5 +1,7 @@
 package org.challenge.question3;
 
+import java.util.List;
+
 public class Question3 {
 
   public static void main(String[] args) {
@@ -7,6 +9,15 @@ public class Question3 {
   }
 
   public static int charCount(char letter, String word) {
-    return 0;
+    int index = word.indexOf(letter, 0);
+    int count = 0;
+
+    while (index != -1) {
+      index++;
+      count++;
+      index = word.indexOf(letter, index);
+    }
+
+    return count;
   }
 }
