@@ -11,8 +11,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.*;
 
 class Question3Integration {
 
@@ -40,6 +39,31 @@ class Question3Integration {
   }
 }
 
+class AreAnagramsShould {
+
+  // Given two Strings, if they have same chars at same quantity and have the same length, then they are anagrams
+  @ParameterizedTest
+  @CsvSource({
+          "origem, meirog",
+          "destino, sentido"
+  })
+  void return_true_for_anagrams(String word1, String word2) {
+    boolean result = Question3.areAnagrams(word1, word2);
+    assertTrue(result);
+  }
+
+  @ParameterizedTest
+  @CsvSource({
+          "origem, dmeirog",
+          "destino, usentido",
+          "ramo, rama"
+  })
+  void return_false_for_non_anagrams(String word1, String word2) {
+    boolean result = Question3.areAnagrams(word1, word2);
+    assertFalse(result);
+  }
+}
+
 class CharCountShould {
 
   // charCount should return how many times a character appears in a string
@@ -52,7 +76,7 @@ class CharCountShould {
           "a, rama, 2",
           "a, ramo, 1"
   })
-  void return_char_count_on_string (char letter, String word, int expected) {
+  void return_char_count_on_string (Character letter, String word, int expected) {
     int result = Question3.charCount(letter, word);
     assertEquals(expected, result);
   }
