@@ -48,7 +48,9 @@ class CharCountShould {
           "o, ovo, 2",
           "e, freezer, 3",
           "i, pista, 1",
-          "m, aeroporto, 0"
+          "m, aeroporto, 0",
+          "a, rama, 2",
+          "a, ramo, 1"
   })
   void return_char_count_on_string (char letter, String word, int expected) {
     int result = Question3.charCount(letter, word);
