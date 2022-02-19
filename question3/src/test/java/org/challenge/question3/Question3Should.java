@@ -15,9 +15,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class Question3Integration {
 
-  // Question3 should print a message and exit without errors
-  @Test
-  void print_a_message() throws IOException, InterruptedException {
+  // Question3 should print the number of anagrams pairs of substrings
+  @ParameterizedTest
+  @CsvSource({
+          "ovo, 3",
+          "ifailuhkqq, 3"
+  })
+  void print_number_of_anagrams_pairs(String input, int expected) throws IOException, InterruptedException {
     // Build the Question1 subprocess
     ProcessBuilder builder = JavaProcess.exec(Question3.class);
 
@@ -34,7 +38,7 @@ class Question3Integration {
     }
     in.close();
 
-    assertFalse(output.isEmpty());
+    assertEquals(expected, String.join(System.lineSeparator(), output));
     assertEquals(0, process.exitValue());
   }
 }
