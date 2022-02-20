@@ -3,6 +3,9 @@ package org.challenge.question2;
 public class Question2 {
 
   public static void main(String[] args) {
+    if(args.length == 0) print_help(true);  // No arguments supplied
+    if (args[0].equals("-h") || args[0].equals("--help")) print_help(false);
+
     String password = args[0];
 
     int missing_chars = countToSafe(password);
