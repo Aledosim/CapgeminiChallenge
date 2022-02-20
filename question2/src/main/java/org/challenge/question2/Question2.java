@@ -10,4 +10,8 @@ public class Question2 {
     if (password.length() >= 6) return 0;
     return 6 - password.length();
   }
+
+  public static boolean hasADigit(String password) {
+    return password.matches(".*\\d+.*");
+  }
 }

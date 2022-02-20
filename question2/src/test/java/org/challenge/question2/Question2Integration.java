@@ -55,3 +55,18 @@ class CountToSixCharsShould {
     assertEquals(expected, result);
   }
 }
+
+class HasADigitShould {
+
+  @ParameterizedTest
+  @CsvSource({
+          "Ya3, true",
+          "3(Vdx, true",
+          "DG*qhW, false",
+          "'', false",
+  })
+  void return_missing_chars(String password, boolean expected){
+    boolean result = Question2.hasADigit(password);
+    assertEquals(expected, result);
+  }
+}
