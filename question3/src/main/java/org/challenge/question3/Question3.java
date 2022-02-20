@@ -31,7 +31,7 @@ public class Question3 {
     return count;
   }
 
-  public static int charCount(Character letter, String word) {
+  static int charCount(Character letter, String word) {
     int index = word.indexOf(letter);
     int count = 0;
 
@@ -44,7 +44,7 @@ public class Question3 {
     return count;
   }
 
-  public static boolean areAnagrams(String word1, String word2) {
+  static boolean areAnagrams(String word1, String word2) {
     return Arrays.stream(word1.split(""))
             .map((c) -> c.charAt(0))
             .distinct()
