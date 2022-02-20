@@ -43,22 +43,6 @@ class Question2Integration {
   }
 }
 
-class CountToSixCharsShould {
-
-  @ParameterizedTest
-  @CsvSource({
-          "Ya3, 3",
-          "3(Vdx, 1",
-          "[hRD97, 0",
-          "ny8(*CS3, 0",
-          "'', 6",
-  })
-  void return_missing_chars(String password, int expected){
-    int result = Question2.countToSixChars(password);
-    assertEquals(expected, result);
-  }
-}
-
 class HasDigitShould {
 
   @ParameterizedTest

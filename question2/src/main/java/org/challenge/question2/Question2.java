@@ -10,11 +10,6 @@ public class Question2 {
     System.out.println(missing_chars);
   }
 
-  public static int countToSixChars(String password) {
-    if (password.length() >= 6) return 0;
-    return 6 - password.length();
-  }
-
   public static boolean hasDigit(String password) {
     return password.matches(".*\\d+.*");
   }
