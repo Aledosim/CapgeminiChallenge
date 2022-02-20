@@ -7,6 +7,27 @@ public class Question1 {
     for (int i = 1; i < n+1; i++) {
       print_line(n, i);
     }
+
+  }
+
+  // Prints a help message and exit with correct status
+  private static void print_help(boolean fail) {
+    String help_text = "" +
+            "usage: question1 [--help|-h] NUMBER_OF_LINES" + System.lineSeparator() +
+            System.lineSeparator() +
+            "This program prints a stair of *" + System.lineSeparator() +
+            System.lineSeparator() +
+            "positional arguments:" + System.lineSeparator() +
+            "  NUMBER_OF_LINES      the height of the stair (the width is the same) " + System.lineSeparator() +
+            System.lineSeparator() +
+            "optional arguments:" + System.lineSeparator() +
+            "  -h, --help  show this help message and exit" + System.lineSeparator() +
+            System.lineSeparator() +
+            "This application is part of Capgemini Brasil's trainee selection program." + System.lineSeparator();
+
+    System.out.print(help_text);
+    if (fail) System.exit(1);
+    System.exit(0);
   }
 
   static void print_line(int line_length, int line_fill) throws Exception {
