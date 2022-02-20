@@ -3,7 +3,11 @@ package org.challenge.question2;
 public class Question2 {
 
   public static void main(String[] args) {
-    System.out.println("Hello World");
+    String password = args[0];
+
+    int missing_chars = countToSafe(password);
+
+    System.out.println(missing_chars);
   }
 
   public static int countToSixChars(String password) {

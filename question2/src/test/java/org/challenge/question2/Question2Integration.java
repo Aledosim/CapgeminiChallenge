@@ -9,18 +9,21 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 
 class Question2Integration {
 
-  // Question2 should print a message and exit without errors
+  // Question2 should print the number of characters missing for a safe password
   @Test
-  void print_a_message() throws IOException, InterruptedException {
+  void print_count_to_safe_password() throws IOException, InterruptedException {
+    String input = "Ya3";
+    int expected = 3;
+
     // Build the Question1 subprocess
-    ProcessBuilder builder = JavaProcess.exec(Question2.class);
+    ProcessBuilder builder = JavaProcess.exec(Question2.class, Collections.singletonList(input));
 
     // Starts the subprocess and wait for it fo finish
     Process process = builder.start();
@@ -35,7 +38,7 @@ class Question2Integration {
     }
     in.close();
 
-    assertFalse(output.isEmpty());
+    assertEquals(String.valueOf(expected), String.join(System.lineSeparator(), output));
     assertEquals(0, process.exitValue());
   }
 }
