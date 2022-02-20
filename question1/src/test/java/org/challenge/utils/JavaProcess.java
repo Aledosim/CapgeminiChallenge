@@ -1,4 +1,4 @@
-package org.challenge.question1;
+package org.challenge.utils;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -7,7 +7,7 @@ import java.util.List;
 
 // This class build a java.lang.Process that run another class (which have a main method) as a subprocess
 // credits: https://lankydan.dev/running-a-java-class-as-a-subprocess
-class JavaProcess {
+public class JavaProcess {
 
     private JavaProcess() {
     }

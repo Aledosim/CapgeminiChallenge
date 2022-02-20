@@ -1,5 +1,6 @@
 package org.challenge.question1;
 
+import org.challenge.utils.JavaProcess;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
