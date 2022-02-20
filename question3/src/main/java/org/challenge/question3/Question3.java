@@ -4,8 +4,15 @@ import java.util.Arrays;
 
 public class Question3 {
 
-  public static void main(String[] args) {
-    System.out.println("Hello World");
+  public static void main(String[] args) throws Exception {
+    String word = args[0];
+    int pairs = 0;
+
+    for (int i = 1; i < word.length(); i++) {
+      pairs += substringAnagramCount(word, i);
+    }
+
+    System.out.println(pairs);
   }
 
   static int substringAnagramCount(String word, int delta) throws Exception {

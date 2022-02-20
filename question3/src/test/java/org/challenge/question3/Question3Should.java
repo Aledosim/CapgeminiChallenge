@@ -39,7 +39,7 @@ class Question3Integration {
     }
     in.close();
 
-    assertEquals(expected, String.join(System.lineSeparator(), output));
+    assertEquals(String.valueOf(expected), String.join(System.lineSeparator(), output));
     assertEquals(0, process.exitValue());
   }
 }
