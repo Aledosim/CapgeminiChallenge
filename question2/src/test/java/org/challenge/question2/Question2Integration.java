@@ -56,7 +56,7 @@ class CountToSixCharsShould {
   }
 }
 
-class HasADigitShould {
+class HasDigitShould {
 
   @ParameterizedTest
   @CsvSource({
@@ -66,12 +66,12 @@ class HasADigitShould {
           "'', false",
   })
   void return_if_it_has_at_least_one_digit(String password, boolean expected){
-    boolean result = Question2.hasADigit(password);
+    boolean result = Question2.hasDigit(password);
     assertEquals(expected, result);
   }
 }
 
-class HasACapitalLetterShould {
+class HasCapitalLetterShould {
 
   @ParameterizedTest
   @CsvSource({
@@ -82,12 +82,12 @@ class HasACapitalLetterShould {
           "'', false",
   })
   void return_if_it_has_at_least_one_capital_letter(String password, boolean expected){
-    boolean result = Question2.hasACapitalLetter(password);
+    boolean result = Question2.hasCapitalLetter(password);
     assertEquals(expected, result);
   }
 }
 
-class HasALowerLetterShould {
+class HasLowerLetterShould {
 
   @ParameterizedTest
   @CsvSource({
@@ -99,12 +99,12 @@ class HasALowerLetterShould {
           "'', false",
   })
   void return_if_it_has_at_least_one_lower_case_letter(String password, boolean expected){
-    boolean result = Question2.hasALowerLetter(password);
+    boolean result = Question2.hasLowerLetter(password);
     assertEquals(expected, result);
   }
 }
 
-class HasASpecialCharShould {
+class HasSpecialCharShould {
 
   @ParameterizedTest
   @CsvSource({
@@ -125,7 +125,7 @@ class HasASpecialCharShould {
           "'', false",
   })
   void return_if_it_has_at_least_one_special_character(String password, boolean expected){
-    boolean result = Question2.hasASpecialChar(password);
+    boolean result = Question2.hasSpecialChar(password);
     assertEquals(expected, result);
   }
 }

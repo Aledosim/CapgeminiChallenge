@@ -11,19 +11,19 @@ public class Question2 {
     return 6 - password.length();
   }
 
-  public static boolean hasADigit(String password) {
+  public static boolean hasDigit(String password) {
     return password.matches(".*\\d+.*");
   }
 
-  public static boolean hasACapitalLetter(String password) {
+  public static boolean hasCapitalLetter(String password) {
     return password.matches(".*[A-Z]+.*");
   }
 
-  public static boolean hasALowerLetter(String password) {
+  public static boolean hasLowerLetter(String password) {
     return password.matches(".*[a-z]+.*");
   }
 
-  public static boolean hasASpecialChar(String password) {
+  public static boolean hasSpecialChar(String password) {
     // Special characters are !@#$%^&*()-+
     String special_chars = "!@#\\$%\\^&*\\(\\)\\-\\+";
 
