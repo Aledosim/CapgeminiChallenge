@@ -86,3 +86,20 @@ class HasACapitalLetterShould {
     assertEquals(expected, result);
   }
 }
+
+class HasALowerLetterShould {
+
+  @ParameterizedTest
+  @CsvSource({
+          "Ya3, true",
+          "3(Vdx, true",
+          "!@X5GS, false",
+          "657T)QZ!A, false",
+          "E@JM28, false",
+          "'', false",
+  })
+  void return_if_it_has_at_least_one_lower_case_letter(String password, boolean expected){
+    boolean result = Question2.hasALowerLetter(password);
+    assertEquals(expected, result);
+  }
+}

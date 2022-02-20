@@ -18,4 +18,8 @@ public class Question2 {
   public static boolean hasACapitalLetter(String password) {
     return password.matches(".*[A-Z]+.*");
   }
+
+  public static boolean hasALowerLetter(String password) {
+    return password.matches(".*[a-z]+.*");
+  }
 }
