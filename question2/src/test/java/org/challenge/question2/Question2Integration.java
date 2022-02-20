@@ -2,6 +2,8 @@ package org.challenge.question2;
 
 import org.challenge.utils.JavaProcess;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -35,5 +37,21 @@ class Question2Integration {
 
     assertFalse(output.isEmpty());
     assertEquals(0, process.exitValue());
+  }
+}
+
+class CountToSixCharsShould {
+
+  @ParameterizedTest
+  @CsvSource({
+          "Ya3, 3",
+          "3(Vdx, 1",
+          "[hRD97, 0",
+          "ny8(*CS3, 0",
+          "'', 6",
+  })
+  void return_missing_chars(String password, int expected){
+    int result = Question2.countToSixChars(password);
+    assertEquals(expected, result);
   }
 }
