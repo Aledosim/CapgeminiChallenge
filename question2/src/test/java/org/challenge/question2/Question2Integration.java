@@ -65,8 +65,24 @@ class HasADigitShould {
           "DG*qhW, false",
           "'', false",
   })
-  void return_missing_chars(String password, boolean expected){
+  void return_if_it_has_at_least_one_digit(String password, boolean expected){
     boolean result = Question2.hasADigit(password);
+    assertEquals(expected, result);
+  }
+}
+
+class HasACapitalLetterShould {
+
+  @ParameterizedTest
+  @CsvSource({
+          "Ya3, true",
+          "3(Vdx, true",
+          "b2$nr%0, false",
+          "5w%hj, false",
+          "'', false",
+  })
+  void return_if_it_has_at_least_one_capital_letter(String password, boolean expected){
+    boolean result = Question2.hasACapitalLetter(password);
     assertEquals(expected, result);
   }
 }

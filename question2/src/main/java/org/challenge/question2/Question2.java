@@ -14,4 +14,8 @@ public class Question2 {
   public static boolean hasADigit(String password) {
     return password.matches(".*\\d+.*");
   }
+
+  public static boolean hasACapitalLetter(String password) {
+    return password.matches(".*[A-Z]+.*");
+  }
 }
