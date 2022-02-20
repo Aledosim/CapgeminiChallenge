@@ -10,6 +10,26 @@ public class Question2 {
     System.out.println(missing_chars);
   }
 
+  // Prints a help message and exit with correct status
+  private static void print_help(boolean fail) {
+    String help_text = "" +
+            "usage: question2 [--help|-h] NUMBER_OF_LINES" + System.lineSeparator() +
+            System.lineSeparator() +
+            "This program tells how much characters are needed to a secure password" + System.lineSeparator() +
+            System.lineSeparator() +
+            "positional arguments:" + System.lineSeparator() +
+            "  PASSWORD      the password to test" + System.lineSeparator() +
+            System.lineSeparator() +
+            "optional arguments:" + System.lineSeparator() +
+            "  -h, --help  show this help message and exit" + System.lineSeparator() +
+            System.lineSeparator() +
+            "This application is part of Capgemini Brasil's trainee selection program." + System.lineSeparator();
+
+    System.out.print(help_text);
+    if (fail) System.exit(1);
+    System.exit(0);
+  }
+
   public static boolean hasDigit(String password) {
     return password.matches(".*\\d+.*");
   }
