@@ -15,6 +15,26 @@ public class Question3 {
     System.out.println(pairs);
   }
 
+  // Prints a help message and exit with correct status
+  private static void print_help(boolean fail) {
+    String help_text = "" +
+            "usage: question3 [--help|-h] WORD" + System.lineSeparator() +
+            System.lineSeparator() +
+            "This program shows the number of anagram pairs of the substrings from a given word" + System.lineSeparator() +
+            System.lineSeparator() +
+            "positional arguments:" + System.lineSeparator() +
+            "  WORD      the word from where the substrings are extracted" + System.lineSeparator() +
+            System.lineSeparator() +
+            "optional arguments:" + System.lineSeparator() +
+            "  -h, --help  show this help message and exit" + System.lineSeparator() +
+            System.lineSeparator() +
+            "This application is part of Capgemini Brasil's trainee selection program." + System.lineSeparator();
+
+    System.out.print(help_text);
+    if (fail) System.exit(1);
+    System.exit(0);
+  }
+
   static int substringAnagramCount(String word, int delta) throws Exception {
     if (delta == word.length()) throw new Exception("delta and word length should not be equal");
     if (delta <= 0) throw new Exception("delta must be more than zero");
