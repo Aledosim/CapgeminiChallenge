@@ -29,4 +29,16 @@ public class Question2 {
 
     return password.matches(".*[" + special_chars + "]+.*");
   }
+
+  public static int countToSafe(String password) {
+    if (password.length() < 6) return 6 - password.length();
+
+    int count = 0;
+    if (!hasDigit(password)) count++;
+    if (!hasLowerLetter(password)) count++;
+    if (!hasCapitalLetter(password)) count++;
+    if (!hasSpecialChar(password)) count++;
+
+    return count;
+  }
 }

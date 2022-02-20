@@ -129,3 +129,25 @@ class HasSpecialCharShould {
     assertEquals(expected, result);
   }
 }
+
+class CountToSafeShould {
+
+  @ParameterizedTest
+  @CsvSource({
+          "Ya3, 3",
+          "5w%hj, 1",
+          "Z8Q@, 2",
+          "cX-jk, 1",
+          "!@X5GS, 1",
+          "b2$nr%0, 1",
+          "DG*qhW, 1",
+          "e7yWZpR9e, 1",
+          "[hRD97, 1",
+          "ny8(*CS3, 0",
+          "'', 6",
+  })
+  void return_number_of_missing_characters_to_safe_password(String password, int expected){
+    int result = Question2.countToSafe(password);
+    assertEquals(expected, result);
+  }
+}
