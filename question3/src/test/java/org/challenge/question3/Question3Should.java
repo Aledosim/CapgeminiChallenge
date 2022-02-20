@@ -9,6 +9,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -18,12 +19,12 @@ class Question3Integration {
   // Question3 should print the number of anagrams pairs of substrings
   @ParameterizedTest
   @CsvSource({
-          "ovo, 3",
+          "ovo, 2",
           "ifailuhkqq, 3"
   })
   void print_number_of_anagrams_pairs(String input, int expected) throws IOException, InterruptedException {
     // Build the Question1 subprocess
-    ProcessBuilder builder = JavaProcess.exec(Question3.class);
+    ProcessBuilder builder = JavaProcess.exec(Question3.class, Collections.singletonList(input));
 
     // Starts the subprocess and wait for it fo finish
     Process process = builder.start();
