@@ -3,9 +3,16 @@ package org.challenge.question1;
 public class Question1 {
 
   public static void main(String[] args) throws Exception {
-    int n = Integer.parseInt(args[0]);
-    for (int i = 1; i < n+1; i++) {
-      print_line(n, i);
+    if(args.length == 0) print_help(true);  // No arguments supplied
+    if (args[0].equals("-h") || args[0].equals("--help")) print_help(false);
+
+    try {
+      int n = Integer.parseInt(args[0]);
+      for (int i = 1; i < n+1; i++) {
+        print_line(n, i);
+      }
+    } catch (NumberFormatException e) {
+      print_help(true);
     }
 
   }
