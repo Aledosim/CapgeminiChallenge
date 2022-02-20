@@ -5,9 +5,11 @@ import java.util.Arrays;
 public class Question3 {
 
   public static void main(String[] args) throws Exception {
+    if(args.length == 0) print_help(true);  // No arguments supplied
+    if (args[0].equals("-h") || args[0].equals("--help")) print_help(false);
+
     String word = args[0];
     int pairs = 0;
-
     for (int i = 1; i < word.length(); i++) {
       pairs += substringAnagramCount(word, i);
     }
