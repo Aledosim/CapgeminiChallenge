@@ -103,3 +103,29 @@ class HasALowerLetterShould {
     assertEquals(expected, result);
   }
 }
+
+class HasASpecialCharShould {
+
+  @ParameterizedTest
+  @CsvSource({
+          "Ya3, false",
+          "9wkcWc, false",
+          "3(Vdx, true",
+          "!X5GS, true",
+          "Hk8t@fd, true",
+          "657T)QZA, true",
+          "NKSsD^, true",
+          "563#f9RMhg, true",
+          "b2$nr0, true",
+          "fgh%5EBT, true",
+          "2&bD3cN, true",
+          "W35F-Mkphf, true",
+          "3YSdDg+pbkqnE, true",
+          "ny8*CS3, true",
+          "'', false",
+  })
+  void return_if_it_has_at_least_one_special_character(String password, boolean expected){
+    boolean result = Question2.hasASpecialChar(password);
+    assertEquals(expected, result);
+  }
+}

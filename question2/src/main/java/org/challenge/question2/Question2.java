@@ -22,4 +22,11 @@ public class Question2 {
   public static boolean hasALowerLetter(String password) {
     return password.matches(".*[a-z]+.*");
   }
+
+  public static boolean hasASpecialChar(String password) {
+    // Special characters are !@#$%^&*()-+
+    String special_chars = "!@#\\$%\\^&*\\(\\)\\-\\+";
+
+    return password.matches(".*[" + special_chars + "]+.*");
+  }
 }
