@@ -43,6 +43,45 @@ class Question3Integration {
   }
 }
 
+class SubstringAnagramCountShould {
+
+  // Returns the number of substring pairs that are anagrams
+  @ParameterizedTest
+  @CsvSource({
+          "ovo, 1, 1",
+          "ovo, 2, 1",
+          "ifailuhkqq, 1, 2",
+          "ifailuhkqq, 2, 0",
+          "ifailuhkqq, 3, 1",
+          "ifailuhkqq, 4, 0",
+          "ifailuhkqq, 5, 0",
+          "ifailuhkqq, 6, 0",
+          "ifailuhkqq, 7, 0",
+          "ifailuhkqq, 8, 0",
+          "ifailuhkqq, 9, 0",
+
+  })
+  void return_number_of_anagrams_pairs(String word, int delta, int expected) throws Exception {
+    int result = Question3.substringAnagramCount(word, delta);
+
+    assertEquals(expected, result);
+  }
+
+  // Raises Exception if delta equals word length
+  @Test
+  void raises_exception_when_delta_equals_word_length() {
+    Exception result = assertThrows(Exception.class, () -> Question3.substringAnagramCount("ovo", 3));
+    assertEquals("delta and word length should not be equal", result.getMessage());
+  }
+
+  // Raises Exception if delta is less than 0
+  @Test
+  void raises_exception_when_delta_less_than_zero() {
+    Exception result = assertThrows(Exception.class, () -> Question3.substringAnagramCount("ovo", 0));
+    assertEquals("delta must be more than zero", result.getMessage());
+  }
+}
+
 class AreAnagramsShould {
 
   // Given two Strings, if they have same chars at same quantity and have the same length, then they are anagrams

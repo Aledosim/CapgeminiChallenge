@@ -8,6 +8,22 @@ public class Question3 {
     System.out.println("Hello World");
   }
 
+  static int substringAnagramCount(String word, int delta) throws Exception {
+    if (delta == word.length()) throw new Exception("delta and word length should not be equal");
+    if (delta <= 0) throw new Exception("delta must be more than zero");
+
+    int count = 0;
+    for (int i = 0; i < word.length() - delta; i++) {
+      String pivot_substring = word.substring(i, i + delta);
+
+      for (int j = i + 1; j < word.length() - delta + 1; j++) {
+        String substring = word.substring(j, j + delta);
+        if (areAnagrams(pivot_substring, substring)) count++;
+      }
+    }
+    return count;
+  }
+
   public static int charCount(Character letter, String word) {
     int index = word.indexOf(letter);
     int count = 0;
