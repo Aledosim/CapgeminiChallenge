@@ -20,7 +20,7 @@ Developed with [OpenJDK](https://openjdk.java.net/) version 11.0.14.
    git clone https://github.com/Aledosim/CapgeminiChallenge
    cd CapgeminiChallenge
    ```
-2. Each question is an independent Maven project, so you need to access each question folder and compile it as you which.
+2. Each question is an independent Maven project, so you need to access each question folder and compile it as you want.
 If you are using Maven, inside the question directory run:
    ```sh
    mvn package
@@ -90,9 +90,13 @@ The answers are distributed under the GPL3 license. See `LICENSE` for more infor
 ## Acknowledgements
 ### What I've learned
 This is my most confident project until now. Although Java isn't my primary language (which is Python lol), I felt really
-comfortable with the documentation. The strong static type discipline was the hard side, but in the end I enjoyed not to
-do type checks for myself like I would on some other language. My style of code generally is using VIM and all terminal 
-work, but this time IntelliJ saved me.
+comfortable with the documentation. The strong static type discipline was the hard side, but in the end I enjoyed to
+do not type checks for myself like I would do on some other language. My style of code generally is using VIM and all terminal 
+work, but this time IntelliJ saved me. The best thing I discovered from this exercise is the Java stream API, that remind me 
+the JavaScript promisse, a great feature.
 
 ### Future tasks
 * automate print_help function tests of all questions
+* reformat print_help function of all questions to ease maintenance
+* implement an Exception for invalid input on Question1.print_line
+* implement an Exception for invalid input on Question3.substringAnagramCount
